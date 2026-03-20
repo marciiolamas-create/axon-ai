@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXON.ai — Client Onboarding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --black:#080A0E;--surface:#0F1117;--surface2:#161B24;
+  --border:#1E2535;--border2:#2A3347;--accent:#00E5A0;
+  --accent-dim:rgba(0,229,160,0.08);--accent-border:rgba(0,229,160,0.25);
+  --text:#E8EBF2;--muted:#6B7892;--muted2:#4A5568;
+  --mono:'Space Mono',monospace;--sans:'Syne',sans-serif;--r:8px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--text);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;}
+header{padding:1.5rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:var(--mono);font-size:14px;color:var(--accent);letter-spacing:.08em;display:flex;align-items:center;gap:8px;}
+.logo-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.logo span{color:var(--muted);}
+.header-label{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;}
+.progress-wrap{padding:2rem 2rem 0;max-width:680px;margin:0 auto;width:100%;}
+.progress-header{display:flex;justify-content:space-between;margin-bottom:.75rem;}
+.progress-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.progress-count{font-family:var(--mono);font-size:11px;color:var(--accent);}
+.progress-bar{height:2px;background:var(--border);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .4s ease;}
+.steps-dots{display:flex;gap:.5rem;margin-top:.75rem;}
+.step-dot{flex:1;height:3px;border-radius:2px;background:var(--border);transition:background .3s;}
+.step-dot.done{background:var(--accent);}
+.step-dot.active{background:rgba(0,229,160,.4);}
+main{flex:1;padding:2rem;max-width:680px;margin:0 auto;width:100%;}
+.step{display:none;animation:fadeIn .3s ease;}
+.step.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.step-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;}
+.step-title{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:.75rem;}
+.step-title em{font-style:normal;color:var(--accent);}
+.step-sub{font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.9;margin-bottom:2.5rem;}
+.field{margin-bottom:1.5rem;}
+.field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;}
+.req{color:var(--accent);margin-left:3px;}
+.field input,.field textarea,.field select{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:.85rem 1rem;color:var(--text);font-family:var(--mono);font-size:13px;outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none;}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(0,229,160,.5);background:var(--surface2);}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted2);}
+.field textarea{resize:vertical;min-height:100px;line-height:1.7;}
+.field select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7892' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;}
+.field select option{background:var(--surface2);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.field-hint{font-family:var(--mono);font-size:11px;color:var(--muted2);margin-top:.4rem;line-height:1.7;}
+.field-error{font-family:var(--mono);font-size:11px;color:#E24B4A;margin-top:.4rem;display:none;}
+.field.has-error input,.field.has-error textarea,.field.has-error select{border-color:#E24B4A;}
+.field.has-error .field-error{display:block;}
+.check-group{display:flex;flex-direction:column;gap:.5rem;}
+.check-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .2s;user-select:none;}
+.check-item:hover{border-color:var(--border2);background:var(--surface2);}
+.check-item.checked{border-color:var(--accent-border);background:var(--accent-dim);}
+.check-box{width:18px;height:18px;border:1px solid var(--border2);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.check-item.checked .check-box{background:var(--accent);border-color:var(--accent);}
+.check-tick{display:none;color:#000;font-size:10px;font-weight:700;}
+.check-item.checked .check-tick{display:block;}
+.check-label{font-family:var(--mono);font-size:13px;color:var(--muted);}
+.check-item.checked .check-label{color:var(--text);}
+.radio-group{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.radio-card{padding:1rem 1.25rem;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .2s;user-select:none;}
+.radio-card:hover{border-color:var(--border2);}
+.radio-card.selected{border-color:var(--accent);background:var(--accent-dim);}
+.radio-card-label{font-family:var(--mono);font-size:13px;color:var(--muted);}
+.radio-card.selected .radio-card-label{color:var(--accent);}
+.product-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.product-card{padding:1.25rem;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .2s;position:relative;user-select:none;}
+.product-card:hover{border-color:var(--border2);}
+.product-card.selected{border-color:var(--accent);background:var(--accent-dim);}
+.pc-tick{position:absolute;top:.75rem;right:.75rem;width:20px;height:20px;border-radius:50%;background:var(--accent);display:none;align-items:center;justify-content:center;font-size:10px;color:#000;font-weight:700;}
+.product-card.selected .pc-tick{display:flex;}
+.pc-emoji{font-size:22px;margin-bottom:.5rem;}
+.pc-name{font-size:14px;font-weight:700;margin-bottom:.2rem;}
+.pc-price{font-family:var(--mono);font-size:11px;color:var(--muted);}
+.nav-buttons{display:flex;justify-content:space-between;align-items:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+.btn-back{background:transparent;border:1px solid var(--border2);color:var(--muted);padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--sans);font-size:14px;cursor:pointer;transition:all .2s;}
+.btn-back:hover{border-color:var(--muted);color:var(--text);}
+.btn-next,.btn-submit{background:var(--accent);color:#000;padding:.75rem 2rem;border-radius:var(--r);font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.btn-next:hover,.btn-submit:hover{opacity:.88;transform:translateY(-1px);}
+.btn-submit{width:100%;padding:1rem;font-size:15px;margin-top:1.5rem;}
+.review-row{display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border);}
+.review-row:last-child{border-bottom:none;}
+.review-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:120px;flex-shrink:0;margin-top:2px;}
+.review-val{font-family:var(--mono);font-size:12px;color:var(--text);line-height:1.7;}
+.success-screen{display:none;text-align:center;padding:4rem 2rem;animation:fadeIn .4s ease;}
+.success-screen.show{display:block;}
+.success-icon{font-size:56px;margin-bottom:1.5rem;}
+.success-title{font-size:2rem;font-weight:800;letter-spacing:-.025em;margin-bottom:.75rem;}
+.success-title em{font-style:normal;color:var(--accent);}
+.success-sub{font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.9;max-width:420px;margin:0 auto 2rem;}
+.next-steps{text-align:left;border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;max-width:420px;margin:0 auto;}
+.ns-item{display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border);}
+.ns-item:last-child{border-bottom:none;}
+.ns-num{width:22px;height:22px;border-radius:50%;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent);flex-shrink:0;margin-top:2px;}
+.ns-text{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;}
+.ns-text strong{color:var(--text);font-weight:400;}
+footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+footer p{font-family:var(--mono);font-size:11px;color:var(--muted2);}
+footer a{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none;}
+footer a:hover{color:var(--accent);}
+.sending-overlay{display:none;position:fixed;inset:0;background:rgba(8,10,14,.85);z-index:100;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.sending-overlay.show{display:flex;}
+.spinner{width:32px;height:32px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.sending-text{font-family:var(--mono);font-size:13px;color:var(--muted);}
+@media(max-width:600px){.field-row,.radio-group,.product-cards{grid-template-columns:1fr;}main,footer{padding:1.5rem;}.progress-wrap{padding:1.5rem 1.5rem 0;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div>
+  <div class="header-label">Client Onboarding</div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-header">
+    <span class="progress-label">Setup progress</span>
+    <span class="progress-count" id="progress-count">Step 1 of 5</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+  <div class="steps-dots" id="steps-dots">
+    <div class="step-dot active"></div><div class="step-dot"></div>
+    <div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div>
+  </div>
+</div>
+
+<main>
+
+  <!-- STEP 1: PRODUCT + BASICS -->
+  <div class="step active" id="step-1">
+    <div class="step-eyebrow">// Step 1 of 5</div>
+    <h2 class="step-title">Which product<br>did you <em>buy?</em></h2>
+    <p class="step-sub">Select your product and fill in the basics. Takes about 2 minutes.</p>
+
+    <div class="field" id="field-product">
+      <label>Your product <span class="req">*</span></label>
+      <div class="product-cards">
+        <div class="product-card" onclick="selectProduct(this,'lead-gen')">
+          <div class="pc-tick">✓</div>
+          <div class="pc-emoji">🎯</div>
+          <div class="pc-name">Lead Gen System</div>
+          <div class="pc-price">£1,997</div>
+        </div>
+        <div class="product-card" onclick="selectProduct(this,'chatbot')">
+          <div class="pc-tick">✓</div>
+          <div class="pc-emoji">🤖</div>
+          <div class="pc-name">AI Chatbot System</div>
+          <div class="pc-price">£2,497</div>
+        </div>
+        <div class="product-card" onclick="selectProduct(this,'crm')">
+          <div class="pc-tick">✓</div>
+          <div class="pc-emoji">⚙️</div>
+          <div class="pc-name">CRM Automation Suite</div>
+          <div class="pc-price">£1,797</div>
+        </div>
+        <div class="product-card" onclick="selectProduct(this,'content')">
+          <div class="pc-tick">✓</div>
+          <div class="pc-emoji">✍️</div>
+          <div class="pc-name">AI Content Pipeline</div>
+          <div class="pc-price">£1,497</div>
+        </div>
+      </div>
+      <div class="field-error">Please select your product</div>
+    </div>
+
+    <div class="field-row">
+      <div class="field" id="field-fname">
+        <label>First name <span class="req">*</span></label>
+        <input type="text" id="fname" placeholder="Alex">
+        <div class="field-error">Required</div>
+      </div>
+      <div class="field" id="field-lname">
+        <label>Last name <span class="req">*</span></label>
+        <input type="text" id="lname" placeholder="Johnson">
+        <div class="field-error">Required</div>
+      </div>
+    </div>
+    <div class="field" id="field-email">
+      <label>Work email <span class="req">*</span></label>
+      <input type="email" id="email" placeholder="alex@company.com">
+      <div class="field-error">Please enter a valid email</div>
+    </div>
+    <div class="field-row">
+      <div class="field" id="field-company">
+        <label>Company name <span class="req">*</span></label>
+        <input type="text" id="company" placeholder="Acme Ltd">
+        <div class="field-error">Required</div>
+      </div>
+      <div class="field">
+        <label>Website</label>
+        <input type="text" id="website" placeholder="acme.com">
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <div></div>
+      <button class="btn-next" onclick="nextStep(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: YOUR BUSINESS -->
+  <div class="step" id="step-2">
+    <div class="step-eyebrow">// Step 2 of 5</div>
+    <h2 class="step-title">About your<br><em>business.</em></h2>
+    <p class="step-sub">The more specific you are, the more precisely we can configure your system.</p>
+
+    <div class="field" id="field-desc">
+      <label>What does your company do? <span class="req">*</span></label>
+      <textarea id="company-desc" placeholder="e.g. We're a B2B SaaS company that helps HR teams automate employee onboarding. We sell to HR Directors at companies with 50-500 employees..."></textarea>
+      <div class="field-hint">2–3 sentences. What you sell and who buys it.</div>
+      <div class="field-error">Required</div>
+    </div>
+    <div class="field" id="field-icp">
+      <label>Who is your ideal customer? <span class="req">*</span></label>
+      <textarea id="ideal-customer" placeholder="e.g. HR Directors and VPs at UK tech companies with 50-200 employees, using HubSpot, who've recently raised funding..."></textarea>
+      <div class="field-hint">Job title, company size, industry, location, any signals.</div>
+      <div class="field-error">Required</div>
+    </div>
+    <div class="field" id="field-problem">
+      <label>What problem are you solving? <span class="req">*</span></label>
+      <textarea id="main-problem" placeholder="e.g. Our SDRs spend 3 hours a day manually researching leads. We're missing hot leads because research takes too long and personalisation is inconsistent..."></textarea>
+      <div class="field-error">Required</div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevStep(2)">← Back</button>
+      <button class="btn-next" onclick="nextStep(2)">Next →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: TOOLS + PRODUCT-SPECIFIC -->
+  <div class="step" id="step-3">
+    <div class="step-eyebrow">// Step 3 of 5</div>
+    <h2 class="step-title">Your current<br><em>tools.</em></h2>
+    <p class="step-sub">We build around your existing stack — no forced migrations.</p>
+
+    <div class="field">
+      <label>Which tools do you use? (select all)</label>
+      <div class="check-group">
+        <div class="check-item" onclick="toggleCheck(this,'hubspot')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">HubSpot</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'salesforce')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Salesforce</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'pipedrive')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Pipedrive</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'notion')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Notion</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'slack')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Slack</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'gmail')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Gmail / Google Workspace</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'wordpress')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">WordPress</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'webflow')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Webflow</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'shopify')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Shopify</span></div>
+        <div class="check-item" onclick="toggleCheck(this,'airtable')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Airtable</span></div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Other tools?</label>
+      <input type="text" id="other-tools" placeholder="e.g. ActiveCampaign, Intercom, Monday.com">
+    </div>
+
+    <!-- LEAD GEN SPECIFIC -->
+    <div id="section-leadgen" style="display:none;">
+      <div class="field-row">
+        <div class="field" id="field-titles">
+          <label>Target job titles <span class="req">*</span></label>
+          <input type="text" id="target-titles" placeholder="e.g. VP Sales, Head of Marketing">
+          <div class="field-error">Required for Lead Gen</div>
+        </div>
+        <div class="field">
+          <label>Target company size</label>
+          <select id="target-size">
+            <option value="">Select...</option>
+            <option>1–10</option><option>11–50</option>
+            <option>51–200</option><option>201–500</option><option>500+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Target locations</label>
+        <input type="text" id="target-locations" placeholder="e.g. United Kingdom, Ireland, DACH">
+      </div>
+    </div>
+
+    <!-- CHATBOT SPECIFIC -->
+    <div id="section-chatbot" style="display:none;">
+      <div class="field">
+        <label>Where should the chatbot live?</label>
+        <div class="check-group">
+          <div class="check-item" onclick="toggleCheck(this,'website-embed')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Website (embed widget)</span></div>
+          <div class="check-item" onclick="toggleCheck(this,'slack-bot')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Slack (internal team bot)</span></div>
+          <div class="check-item" onclick="toggleCheck(this,'whatsapp')"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">WhatsApp</span></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Preferred bot name</label>
+        <input type="text" id="bot-name" placeholder="e.g. Aria, Max — or leave blank for a suggestion">
+      </div>
+      <div class="field">
+        <label>What should the bot NEVER do?</label>
+        <textarea id="bot-restrictions" placeholder="e.g. Never discuss pricing, never make promises about timelines, never mention competitors..."></textarea>
+      </div>
+    </div>
+
+    <!-- CRM SPECIFIC -->
+    <div id="section-crm" style="display:none;">
+      <div class="field-row">
+        <div class="field">
+          <label>Which CRM?</label>
+          <select id="crm-type">
+            <option value="">Select...</option>
+            <option>HubSpot</option><option>Salesforce</option>
+            <option>Pipedrive</option><option>Notion</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Weekly lead volume</label>
+          <select id="lead-volume">
+            <option value="">Select...</option>
+            <option>Under 10</option><option>10–50</option>
+            <option>50–200</option><option>200+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>How many sales reps need leads assigned?</label>
+        <input type="number" id="rep-count" placeholder="e.g. 3">
+      </div>
+      <div class="field">
+        <label>Weekly report recipients (email addresses)</label>
+        <input type="text" id="report-recipients" placeholder="e.g. ceo@company.com, sales@company.com">
+      </div>
+    </div>
+
+    <!-- CONTENT SPECIFIC -->
+    <div id="section-content" style="display:none;">
+      <div class="field-row">
+        <div class="field">
+          <label>Which CMS?</label>
+          <select id="cms-type">
+            <option value="">Select...</option>
+            <option>WordPress</option><option>Webflow</option>
+            <option>Shopify</option><option>Ghost</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>SEO target country</label>
+          <input type="text" id="seo-country" placeholder="e.g. United Kingdom">
+        </div>
+      </div>
+      <div class="field">
+        <label>Monthly content volume needed</label>
+        <select id="content-volume">
+          <option value="">Select...</option>
+          <option>4 pieces/month</option><option>8 pieces/month</option>
+          <option>12 pieces/month</option><option>20+ pieces/month</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Links to your 5 best existing blog posts</label>
+        <textarea id="existing-content" placeholder="Paste URLs here — we use these to train the AI on your brand voice"></textarea>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevStep(3)">← Back</button>
+      <button class="btn-next" onclick="nextStep(3)">Next →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: GOALS -->
+  <div class="step" id="step-4">
+    <div class="step-eyebrow">// Step 4 of 5</div>
+    <h2 class="step-title">Goals and<br><em>expectations.</em></h2>
+    <p class="step-sub">Helps us set the right targets and configure the right defaults.</p>
+
+    <div class="field" id="field-success">
+      <label>What does success look like in 30 days? <span class="req">*</span></label>
+      <textarea id="success-metric" placeholder="e.g. 50 qualified leads per week in HubSpot with personalised first lines ready, without my team doing any manual research..."></textarea>
+      <div class="field-hint">Numbers are better than feelings. Be specific.</div>
+      <div class="field-error">Required</div>
+    </div>
+
+    <div class="field">
+      <label>How urgent is this?</label>
+      <div class="radio-group">
+        <div class="radio-card" onclick="selectRadio(this,'urgency','asap')"><div class="radio-card-label">ASAP — blocking us now</div></div>
+        <div class="radio-card" onclick="selectRadio(this,'urgency','soon')"><div class="radio-card-label">Within 2 weeks</div></div>
+        <div class="radio-card" onclick="selectRadio(this,'urgency','planned')"><div class="radio-card-label">Part of a larger rollout</div></div>
+        <div class="radio-card" onclick="selectRadio(this,'urgency','exploring')"><div class="radio-card-label">No hard deadline</div></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Tried to automate this before?</label>
+      <textarea id="previous-attempts" placeholder="e.g. We tried Zapier but it couldn't handle conditional logic. We looked at a VA but quality was inconsistent..."></textarea>
+      <div class="field-hint">Optional — helps us avoid repeating what didn't work.</div>
+    </div>
+
+    <div class="field">
+      <label>Anything else we should know?</label>
+      <textarea id="extra-notes" placeholder="Constraints, preferences, things to avoid, specific integrations..."></textarea>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevStep(4)">← Back</button>
+      <button class="btn-next" onclick="nextStep(4)">Next →</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: REVIEW + SUBMIT -->
+  <div class="step" id="step-5">
+    <div class="step-eyebrow">// Step 5 of 5</div>
+    <h2 class="step-title">Review and<br><em>submit.</em></h2>
+    <p class="step-sub">Check everything looks right. Your AI build plan will be generated within 2 hours of submission.</p>
+
+    <div style="border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-bottom:1.5rem;" id="review-box"></div>
+
+    <div style="border:1px solid var(--accent-border);border-radius:var(--r);padding:1.25rem;background:var(--accent-dim);margin-bottom:1.5rem;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;">// What happens next</div>
+      <div style="display:flex;flex-direction:column;gap:.75rem;">
+        <div style="display:flex;gap:.75rem;"><span style="font-family:var(--mono);font-size:11px;color:var(--accent);width:20px;flex-shrink:0;">01</span><span style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">AI generates your complete build plan — emailed to you within 2 hours.</span></div>
+        <div style="display:flex;gap:.75rem;"><span style="font-family:var(--mono);font-size:11px;color:var(--accent);width:20px;flex-shrink:0;">02</span><span style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">One-click to approve the plan. Takes 2 minutes.</span></div>
+        <div style="display:flex;gap:.75rem;"><span style="font-family:var(--mono);font-size:11px;color:var(--accent);width:20px;flex-shrink:0;">03</span><span style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">We send a simple access request. Submit your tool credentials. Build starts same day.</span></div>
+      </div>
+    </div>
+
+    <div class="check-item" onclick="toggleCheck(this,'consent')" id="consent-item" style="margin-bottom:1.5rem;">
+      <div class="check-box"><span class="check-tick">✓</span></div>
+      <span class="check-label" style="font-size:12px;line-height:1.8;">I confirm this information is accurate and I'm ready to proceed. I understand the build timeline starts when I submit my access credentials.</span>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevStep(5)">← Back</button>
+      <button class="btn-submit" onclick="submitForm()">Submit onboarding form →</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-screen" id="success-screen">
+    <div class="success-icon">⚡</div>
+    <h2 class="success-title">You're all<br><em>set.</em></h2>
+    <p class="success-sub">Received. Your AI build plan will be in your inbox within 2 hours.</p>
+    <div class="next-steps">
+      <div class="ns-item"><div class="ns-num">1</div><div class="ns-text"><strong>Check your inbox</strong> — build plan arriving within 2 hours</div></div>
+      <div class="ns-item"><div class="ns-num">2</div><div class="ns-text"><strong>Review and approve</strong> — one click, 2 minutes</div></div>
+      <div class="ns-item"><div class="ns-num">3</div><div class="ns-text"><strong>Submit access credentials</strong> — we'll guide you step by step</div></div>
+      <div class="ns-item"><div class="ns-num">4</div><div class="ns-text"><strong>Build starts</strong> — updates sent throughout</div></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Axon AI Ltd.</p>
+  <a href="mailto:hello@axon.ai">hello@axon.ai</a>
+</footer>
+
+<div class="sending-overlay" id="sending-overlay">
+  <div class="spinner"></div>
+  <div class="sending-text">Submitting your form...</div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// CONFIG — replace this with your Make/n8n webhook URL
+const WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL_HERE';
+// ─────────────────────────────────────────────
+
+let currentStep = 1;
+let selectedProduct = '';
+let selectedUrgency = '';
+let checkedTools = [];
+let checkedBotChannels = [];
+
+// ── PRODUCT SELECT ──
+function selectProduct(el, product) {
+  document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedProduct = product;
+  document.getElementById('field-product').classList.remove('has-error');
+  ['section-leadgen','section-chatbot','section-crm','section-content'].forEach(id => {
+    document.getElementById(id).style.display = 'none';
+  });
+  const map = {'lead-gen':'leadgen','chatbot':'chatbot','crm':'crm','content':'content'};
+  if (map[product]) document.getElementById('section-' + map[product]).style.display = 'block';
+}
+
+// ── CHECKBOX ──
+function toggleCheck(el, val) {
+  el.classList.toggle('checked');
+  if (val === 'consent') return;
+  const isBot = ['website-embed','slack-bot','whatsapp'].includes(val);
+  const arr = isBot ? checkedBotChannels : checkedTools;
+  const idx = arr.indexOf(val);
+  if (idx > -1) arr.splice(idx, 1);
+  else arr.push(val);
+}
+
+// ── RADIO ──
+function selectRadio(el, name, val) {
+  document.querySelectorAll(`[data-radio="${name}"]`).forEach(r => r.classList.remove('selected'));
+  el.setAttribute('data-radio', name);
+  document.querySelectorAll('.radio-card').forEach(r => {
+    if (r.getAttribute('data-radio') === name) r.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  if (name === 'urgency') selectedUrgency = val;
+}
+
+// ── VALIDATION ──
+function validate(step) {
+  let ok = true;
+  const require = (id, fieldId) => {
+    const el = document.getElementById(id);
+    const field = document.getElementById(fieldId || ('field-' + id));
+    if (!el || !el.value.trim()) { if(field) field.classList.add('has-error'); ok = false; }
+    else if(field) field.classList.remove('has-error');
+  };
+  if (step === 1) {
+    if (!selectedProduct) { document.getElementById('field-product').classList.add('has-error'); ok = false; }
+    require('fname','field-fname'); require('lname','field-lname'); require('company','field-company');
+    const em = document.getElementById('email');
+    const ef = document.getElementById('field-email');
+    if (!em.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)) { ef.classList.add('has-error'); ok = false; }
+    else ef.classList.remove('has-error');
+  }
+  if (step === 2) {
+    require('company-desc','field-desc');
+    require('ideal-customer','field-icp');
+    require('main-problem','field-problem');
+  }
+  if (step === 3 && selectedProduct === 'lead-gen') {
+    require('target-titles','field-titles');
+  }
+  if (step === 4) require('success-metric','field-success');
+  return ok;
+}
+
+// ── NAVIGATION ──
+function nextStep(from) {
+  if (!validate(from)) {
+    document.querySelector(`#step-${from} .has-error`)?.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  if (from === 4) buildReview();
+  goTo(from + 1);
+}
+function prevStep(from) { goTo(from - 1); }
+function goTo(n) {
+  document.getElementById(`step-${currentStep}`).classList.remove('active');
+  currentStep = n;
+  document.getElementById(`step-${currentStep}`).classList.add('active');
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function updateProgress() {
+  document.getElementById('progress-fill').style.width = (currentStep / 5 * 100) + '%';
+  document.getElementById('progress-count').textContent = `Step ${currentStep} of 5`;
+  document.querySelectorAll('.step-dot').forEach((d,i) => {
+    d.classList.remove('active','done');
+    if (i < currentStep - 1) d.classList.add('done');
+    else if (i === currentStep - 1) d.classList.add('active');
+  });
+}
+
+// ── REVIEW BOX ──
+function buildReview() {
+  const names = {'lead-gen':'Lead Gen System','chatbot':'AI Chatbot System','crm':'CRM Automation Suite','content':'AI Content Pipeline'};
+  const tools = checkedTools.length ? checkedTools.join(', ') : 'None selected';
+  const rows = [
+    ['Product', names[selectedProduct] || selectedProduct],
+    ['Name', g('fname') + ' ' + g('lname')],
+    ['Email', g('email')],
+    ['Company', g('company') + (g('website') ? ' · ' + g('website') : '')],
+    ['Tools', tools],
+    ['Problem', trunc(g('main-problem'), 100)],
+    ['Success metric', trunc(g('success-metric'), 100)],
+    ['Urgency', selectedUrgency || 'Not specified'],
+  ];
+  document.getElementById('review-box').innerHTML =
+    '<div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">// Your submission</div>' +
+    rows.map(([l,v]) => `<div class="review-row"><div class="review-label">${l}</div><div class="review-val">${v||'—'}</div></div>`).join('');
+}
+function g(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function trunc(s, n) { return s.length > n ? s.substring(0,n) + '...' : s; }
+
+// ── SUBMIT ──
+async function submitForm() {
+  if (!document.getElementById('consent-item').classList.contains('checked')) {
+    alert('Please confirm the checkbox before submitting.');
+    return;
+  }
+  document.getElementById('sending-overlay').classList.add('show');
+
+  const payload = {
+    submitted_at: new Date().toISOString(),
+    product: selectedProduct,
+    first_name: g('fname'),
+    last_name: g('lname'),
+    email: g('email'),
+    company: g('company'),
+    website: g('website'),
+    company_description: g('company-desc'),
+    ideal_customer: g('ideal-customer'),
+    main_problem: g('main-problem'),
+    tools_used: checkedTools,
+    other_tools: g('other-tools'),
+    success_metric: g('success-metric'),
+    urgency: selectedUrgency,
+    previous_attempts: g('previous-attempts'),
+    extra_notes: g('extra-notes'),
+    // Lead Gen specific
+    target_titles: g('target-titles'),
+    target_size: g('target-size'),
+    target_locations: g('target-locations'),
+    // Chatbot specific
+    bot_channels: checkedBotChannels,
+    bot_name: g('bot-name'),
+    bot_restrictions: g('bot-restrictions'),
+    // CRM specific
+    crm_type: g('crm-type'),
+    lead_volume: g('lead-volume'),
+    rep_count: g('rep-count'),
+    report_recipients: g('report-recipients'),
+    // Content specific
+    cms_type: g('cms-type'),
+    seo_country: g('seo-country'),
+    content_volume: g('content-volume'),
+    existing_content: g('existing-content'),
+  };
+
+  try {
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    });
+  } catch(e) {
+    console.log('Webhook sent (no-cors mode)');
+  }
+
+  document.getElementById('sending-overlay').classList.remove('show');
+  document.getElementById(`step-${currentStep}`).classList.remove('active');
+  document.querySelector('.progress-wrap').style.display = 'none';
+  document.getElementById('success-screen').classList.add('show');
+}
+</script>
+</body>
+</html>

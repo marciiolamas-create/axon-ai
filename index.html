@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXON.ai — AI Automation Agency</title>
+<meta name="description" content="Custom AI automation systems. We build, deploy, and maintain — you scale.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo" onclick="showPage('home')">
+    <div class="logo-dot"></div>AXON<span>.ai</span>
+  </div>
+  <ul id="nav-links">
+    <li><a onclick="showPage('home');closeMenu()" data-page="home">Home</a></li>
+    <li><a onclick="showPage('services');closeMenu()" data-page="services">Services</a></li>
+    <li><a onclick="showPage('shop');closeMenu()" data-page="shop">Shop</a></li>
+    <li><a onclick="showPage('work');closeMenu()" data-page="work">Work</a></li>
+    <li><a onclick="showPage('about');closeMenu()" data-page="about">About</a></li>
+    <li><a onclick="showPage('contact');closeMenu()" data-page="contact" class="nav-cta">Get started</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="grid-bg"></div><div class="grid-fade"></div>
+    <div class="hero-badge">⬢ &nbsp;AI Automation Agency · London</div>
+    <h1>We automate the work<br>you <em>shouldn't</em><br>be doing.</h1>
+    <p class="hero-sub">Custom AI systems for teams that want to stop bleeding hours on manual ops. We build, deploy, and maintain — you focus on what only humans can do.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="showPage('shop')">Browse products →</button>
+      <button class="btn btn-ghost" onclick="showPage('work')">See our work</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">12×</div><div class="stat-label">Average speed gain</div></div>
+      <div class="stat"><div class="stat-num">80%</div><div class="stat-label">Reduction in manual ops</div></div>
+      <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Time to first live workflow</div></div>
+      <div class="stat"><div class="stat-num">£0</div><div class="stat-label">Upfront to start</div></div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner">
+    <span class="marquee-item"><span>◈</span>Lead Gen Automation</span>
+    <span class="marquee-item"><span>◈</span>AI Chatbot Systems</span>
+    <span class="marquee-item"><span>◈</span>CRM Automation</span>
+    <span class="marquee-item"><span>◈</span>Content Pipelines</span>
+    <span class="marquee-item"><span>◈</span>Data Enrichment</span>
+    <span class="marquee-item"><span>◈</span>Workflow Automation</span>
+    <span class="marquee-item"><span>◈</span>AI Dashboards</span>
+    <span class="marquee-item"><span>◈</span>Lead Gen Automation</span>
+    <span class="marquee-item"><span>◈</span>AI Chatbot Systems</span>
+    <span class="marquee-item"><span>◈</span>CRM Automation</span>
+    <span class="marquee-item"><span>◈</span>Content Pipelines</span>
+    <span class="marquee-item"><span>◈</span>Data Enrichment</span>
+    <span class="marquee-item"><span>◈</span>Workflow Automation</span>
+    <span class="marquee-item"><span>◈</span>AI Dashboards</span>
+  </div></div>
+
+  <!-- FEATURED PRODUCTS PREVIEW -->
+  <section class="bg-surface fade-up">
+    <div class="section-hdr">
+      <div class="eyebrow">// What we sell</div>
+      <h2 class="section-title">Four products.<br><em>Infinite leverage.</em></h2>
+      <p class="section-sub">Fixed-scope, fixed-price automation systems. You know exactly what you're getting before you buy.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
+      <div class="product-card" onclick="showPage('shop')">
+        <div class="product-img" style="background:linear-gradient(135deg,#0a1628 0%,#0d2040 100%);">
+          <span style="font-size:52px;">🎯</span>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Lead Generation</div>
+          <h3>Lead Gen System</h3>
+          <p>Fully automated outbound pipeline — source, enrich, score, and personalise outreach without lifting a finger.</p>
+          <div class="product-meta">
+            <div class="product-price">£1,997 <span>one-time</span></div>
+            <span class="delivery-badge">14-day delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" onclick="showPage('shop')">
+        <div class="product-img" style="background:linear-gradient(135deg,#0a1a1a 0%,#0d2a20 100%);">
+          <span style="font-size:52px;">🤖</span>
+        </div>
+        <div class="product-body">
+          <div class="product-category">AI Assistant</div>
+          <h3>AI Chatbot System</h3>
+          <p>Custom AI assistant trained on your business — handles support, sales questions, and internal ops 24/7.</p>
+          <div class="product-meta">
+            <div class="product-price">£2,497 <span>one-time</span></div>
+            <span class="delivery-badge">10-day delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" onclick="showPage('shop')">
+        <div class="product-img" style="background:linear-gradient(135deg,#160a28 0%,#200d40 100%);">
+          <span style="font-size:52px;">⚙️</span>
+        </div>
+        <div class="product-body">
+          <div class="product-category">CRM & Ops</div>
+          <h3>CRM Automation Suite</h3>
+          <p>Automate your entire CRM — data entry, lead routing, follow-up sequences, and reporting. Zero manual work.</p>
+          <div class="product-meta">
+            <div class="product-price">£1,797 <span>one-time</span></div>
+            <span class="delivery-badge">7-day delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" onclick="showPage('shop')">
+        <div class="product-img" style="background:linear-gradient(135deg,#1a1200 0%,#2a1e00 100%);">
+          <span style="font-size:52px;">✍️</span>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Content & SEO</div>
+          <h3>AI Content System</h3>
+          <p>Research, write, optimise, and publish content at scale — maintaining your brand voice throughout.</p>
+          <div class="product-meta">
+            <div class="product-price">£1,497 <span>one-time</span></div>
+            <span class="delivery-badge">10-day delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <button class="btn btn-primary" onclick="showPage('shop')">View all products & buy →</button>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="fade-up">
+    <div class="section-hdr">
+      <div class="eyebrow">// How it works</div>
+      <h2 class="section-title">Buy today.<br><em>Live in days.</em></h2>
+    </div>
+    <div class="process-grid">
+      <div class="step"><div class="step-circle">01</div><h4>You buy online</h4><p>Choose your product and complete checkout. You'll get an instant confirmation and onboarding form.</p></div>
+      <div class="step"><div class="step-circle">02</div><h4>We onboard you</h4><p>Short questionnaire + 30-min kickoff call to understand your setup, tools, and specific requirements.</p></div>
+      <div class="step"><div class="step-circle">03</div><h4>We build it</h4><p>We build, test, and QA your system. You get daily updates. Everything is built in your accounts.</p></div>
+      <div class="step"><div class="step-circle">04</div><h4>You go live</h4><p>Handover call, full documentation, 30-day support. Your system. Your accounts. No lock-in.</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-surface fade-up">
+    <div class="section-hdr">
+      <div class="eyebrow">// Client results</div>
+      <h2 class="section-title">Real teams,<br><em>real ROI.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Bought the Lead Gen System on a Monday. It was live by the following Friday. First qualified leads came in over the weekend. Genuinely shocked."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(0,229,160,.1);color:var(--accent);">SK</div>
+          <div><div class="testi-name">Sarah K.</div><div class="testi-role">Head of Sales · Series A SaaS</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The CRM Automation Suite replaced about 12 hours of admin work per week across our team. ROI was clear within the first month."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(0,92,255,.1);color:#4D8AFF;">JT</div>
+          <div><div class="testi-name">James T.</div><div class="testi-role">CTO · Digital Agency</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The AI Chatbot handles about 70% of our inbound support queries. My team now focuses on complex issues only. Total game-changer."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(229,100,0,.1);color:#E56400;">PM</div>
+          <div><div class="testi-name">Priya M.</div><div class="testi-role">Founder · E-commerce Brand</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band fade-up">
+    <div class="eyebrow">// Ready to automate?</div>
+    <h2 class="section-title">Pick a product.<br><em>We'll handle the rest.</em></h2>
+    <p>Fixed-price. Fixed-scope. Zero guesswork. Buy online and we'll have your system live within two weeks.</p>
+    <div class="cta-actions">
+      <button class="btn btn-primary" onclick="showPage('shop')">Shop all products →</button>
+      <button class="btn btn-ghost" onclick="showPage('contact')">Talk to us first</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems for teams that want to scale without scaling headcount. Based in London.</p></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('work')">Case studies</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Products</h5><ul><li><a onclick="buyProduct(0)">Lead Gen System</a></li><li><a onclick="buyProduct(1)">AI Chatbot System</a></li><li><a onclick="buyProduct(2)">CRM Automation</a></li><li><a onclick="buyProduct(3)">Content System</a></li></ul></div>
+    <div class="footer-col"><h5>Get started</h5><ul><li><a onclick="showPage('shop')">Shop</a></li><li><a onclick="showPage('pricing')">Pricing</a></li><li><a onclick="showPage('contact')">Free audit</a></li><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd. Registered in England & Wales.</p><div class="footer-socials"><a>LinkedIn</a><a>Twitter / X</a></div></div>
+</div>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<div class="page" id="page-services">
+  <div style="padding:9rem 4rem 2rem;background:var(--surface);border-bottom:1px solid var(--border);">
+    <div class="eyebrow">// Services</div>
+    <h1 class="section-title">What we<br><em>build.</em></h1>
+    <p class="section-sub">Six automation disciplines. Each delivered end-to-end — strategy, build, integration, and ongoing maintenance.</p>
+  </div>
+  <section class="fade-up" style="padding-top:1rem;">
+    <div class="services-grid">
+      <div class="svc-card"><div class="svc-num">01</div><div class="svc-icon">⚡</div><h3>Workflow Automation</h3><p>Replace manual handoffs with intelligent multi-step flows. CRM sync, invoicing, onboarding, approvals — all automated.</p><div class="tags"><span class="tag">Make</span><span class="tag">n8n</span><span class="tag">Zapier</span></div></div>
+      <div class="svc-card"><div class="svc-num">02</div><div class="svc-icon">◈</div><h3>AI Agents & Assistants</h3><p>Custom agents trained on your data — handling support, ops, and internal Q&A 24/7 with your brand voice.</p><div class="tags"><span class="tag">Claude</span><span class="tag">OpenAI</span><span class="tag">RAG</span></div></div>
+      <div class="svc-card"><div class="svc-num">03</div><div class="svc-icon">⬡</div><h3>Data Pipelines</h3><p>Scraping, enrichment, transformation, and reporting pipelines that surface the data you actually need.</p><div class="tags"><span class="tag">Airtable</span><span class="tag">Supabase</span><span class="tag">SQL</span></div></div>
+      <div class="svc-card"><div class="svc-num">04</div><div class="svc-icon">▣</div><h3>AI Content Systems</h3><p>Automated content pipelines that research, write, optimise, and publish — scaling your content without scaling headcount.</p><div class="tags"><span class="tag">GPT-4o</span><span class="tag">Perplexity</span><span class="tag">Notion</span></div></div>
+      <div class="svc-card"><div class="svc-num">05</div><div class="svc-icon">◎</div><h3>Lead Gen Automation</h3><p>Outbound sequences, lead scoring, data enrichment, CRM population — running autonomously so your team closes, not researches.</p><div class="tags"><span class="tag">Clay</span><span class="tag">Apollo</span><span class="tag">HubSpot</span></div></div>
+      <div class="svc-card"><div class="svc-num">06</div><div class="svc-icon">⬢</div><h3>AI Dashboards</h3><p>Live ops dashboards with AI anomaly detection, KPI tracking, and natural-language querying of your business data.</p><div class="tags"><span class="tag">Retool</span><span class="tag">Metabase</span><span class="tag">API</span></div></div>
+    </div>
+  </section>
+  <section class="bg-surface fade-up">
+    <div class="section-hdr"><div class="eyebrow">// The stack</div><h2 class="section-title">Tools we<br><em>work with.</em></h2></div>
+    <div class="stack-grid">
+      <div class="stack-item"><div class="stack-emoji">🤖</div><div class="stack-name">Claude API</div><div class="stack-cat">AI</div></div>
+      <div class="stack-item"><div class="stack-emoji">🧠</div><div class="stack-name">OpenAI</div><div class="stack-cat">AI</div></div>
+      <div class="stack-item"><div class="stack-emoji">⚙️</div><div class="stack-name">Make</div><div class="stack-cat">Automation</div></div>
+      <div class="stack-item"><div class="stack-emoji">🔗</div><div class="stack-name">n8n</div><div class="stack-cat">Automation</div></div>
+      <div class="stack-item"><div class="stack-emoji">📊</div><div class="stack-name">Airtable</div><div class="stack-cat">Database</div></div>
+      <div class="stack-item"><div class="stack-emoji">🗄️</div><div class="stack-name">Supabase</div><div class="stack-cat">Backend</div></div>
+      <div class="stack-item"><div class="stack-emoji">🎯</div><div class="stack-name">Clay</div><div class="stack-cat">Lead data</div></div>
+      <div class="stack-item"><div class="stack-emoji">💬</div><div class="stack-name">HubSpot</div><div class="stack-cat">CRM</div></div>
+      <div class="stack-item"><div class="stack-emoji">🔍</div><div class="stack-name">Perplexity</div><div class="stack-cat">Research</div></div>
+      <div class="stack-item"><div class="stack-emoji">📬</div><div class="stack-name">Instantly</div><div class="stack-cat">Outbound</div></div>
+      <div class="stack-item"><div class="stack-emoji">📋</div><div class="stack-name">Notion</div><div class="stack-cat">Content</div></div>
+      <div class="stack-item"><div class="stack-emoji">📈</div><div class="stack-name">Retool</div><div class="stack-cat">Dashboards</div></div>
+      <div class="stack-item"><div class="stack-emoji">🐍</div><div class="stack-name">Python</div><div class="stack-cat">Code</div></div>
+      <div class="stack-item"><div class="stack-emoji">🌐</div><div class="stack-name">Apify</div><div class="stack-cat">Scraping</div></div>
+      <div class="stack-item"><div class="stack-emoji">📩</div><div class="stack-name">Slack</div><div class="stack-cat">Comms</div></div>
+      <div class="stack-item"><div class="stack-emoji">⚡</div><div class="stack-name">Apollo</div><div class="stack-cat">Leads</div></div>
+    </div>
+  </section>
+  <div class="cta-band fade-up">
+    <div class="eyebrow">// Ready to build?</div>
+    <h2 class="section-title">Browse our<br><em>products.</em></h2>
+    <p>Fixed-price automation products. Buy online, live within two weeks.</p>
+    <div class="cta-actions"><button class="btn btn-primary" onclick="showPage('shop')">Shop products →</button><button class="btn btn-ghost" onclick="showPage('contact')">Custom project?</button></div>
+  </div>
+  <footer>
+    <div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems for teams that want to scale without scaling headcount.</p></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('work')">Case studies</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Products</h5><ul><li><a onclick="showPage('shop')">All products</a></li></ul></div>
+    <div class="footer-col"><h5>Get started</h5><ul><li><a onclick="showPage('shop')">Shop</a></li><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd.</p><div class="footer-socials"><a>LinkedIn</a><a>Twitter / X</a></div></div>
+</div>
+
+<!-- ═══════════ SHOP ═══════════ -->
+<div class="page" id="page-shop">
+  <div class="shop-hero">
+    <div class="eyebrow">// Products</div>
+    <h1 class="section-title">Buy an automation.<br><em>Be live in days.</em></h1>
+    <p class="section-sub">Fixed-scope. Fixed-price. Every product built in your accounts — you own it forever.</p>
+    <div class="shop-filters">
+      <button class="filter-btn active" onclick="filterProducts('all',this)">All products</button>
+      <button class="filter-btn" onclick="filterProducts('lead',this)">Lead Generation</button>
+      <button class="filter-btn" onclick="filterProducts('ai',this)">AI Assistants</button>
+      <button class="filter-btn" onclick="filterProducts('crm',this)">CRM & Ops</button>
+      <button class="filter-btn" onclick="filterProducts('content',this)">Content</button>
+    </div>
+  </div>
+
+  <div class="products-grid" id="products-grid">
+
+    <!-- PRODUCT 1: Lead Gen -->
+    <div class="product-card featured-product" data-category="lead" onclick="showProduct(0)">
+      <div class="product-img-grid" style="background:#080e1a;">
+        <div class="product-img-cell" style="background:rgba(0,229,160,.04);">🎯</div>
+        <div class="product-img-cell" style="background:rgba(0,229,160,.02);">📊</div>
+        <div class="product-img-cell" style="background:rgba(0,229,160,.03);">✉️</div>
+        <div class="product-img-cell" style="background:rgba(0,229,160,.01);">⚡</div>
+      </div>
+      <div class="product-body">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <div class="product-category">Lead Generation · Most popular</div>
+            <h3>Lead Gen Automation System</h3>
+          </div>
+          <span class="delivery-badge" style="font-size:11px;">⭐ Bestseller</span>
+        </div>
+        <p>A fully automated outbound pipeline that finds your ideal customers, enriches their data from 6+ sources, scores them against your ICP, and generates personalised first-line copy — before a human touches the record. Connects directly to HubSpot, Salesforce, or Notion.</p>
+        <div class="product-includes">
+          <span class="product-tag">Lead sourcing (Apollo/Clay)</span>
+          <span class="product-tag">Data enrichment (6 sources)</span>
+          <span class="product-tag">ICP scoring model</span>
+          <span class="product-tag">AI personalisation</span>
+          <span class="product-tag">CRM integration</span>
+          <span class="product-tag">Email sequence setup</span>
+          <span class="product-tag">30-day support</span>
+        </div>
+        <div class="product-meta">
+          <div class="product-price">£1,997 <span>one-time · no subscription</span></div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <span class="delivery-badge">14-day delivery</span>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();startCheckout(0)">Buy now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2: AI Chatbot -->
+    <div class="product-card" data-category="ai" onclick="showProduct(1)">
+      <div class="product-img" style="background:linear-gradient(135deg,#0a1a1a,#0d2a20);">
+        <span style="font-size:52px;">🤖</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">AI Assistant</div>
+        <h3>AI Chatbot System</h3>
+        <p>A custom AI assistant trained on your entire business — FAQs, products, policies, tone of voice. Handles support, sales pre-qualification, and internal Q&A around the clock. Deployable on your website, Slack, or WhatsApp.</p>
+        <div class="product-includes">
+          <span class="product-tag">RAG knowledge base</span>
+          <span class="product-tag">Trained on your docs</span>
+          <span class="product-tag">Web embed + Slack</span>
+          <span class="product-tag">Handoff to human</span>
+          <span class="product-tag">Analytics dashboard</span>
+        </div>
+        <div class="product-meta">
+          <div class="product-price">£2,497 <span>one-time</span></div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <span class="delivery-badge">10-day delivery</span>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();startCheckout(1)">Buy now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3: CRM Automation -->
+    <div class="product-card" data-category="crm" onclick="showProduct(2)">
+      <div class="product-img" style="background:linear-gradient(135deg,#160a28,#200d40);">
+        <span style="font-size:52px;">⚙️</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">CRM & Ops</div>
+        <h3>CRM Automation Suite</h3>
+        <p>Automate your entire CRM operation — data entry, deal stage updates, follow-up reminders, onboarding sequences, and weekly reporting. Works with HubSpot, Salesforce, Pipedrive, or Notion.</p>
+        <div class="product-includes">
+          <span class="product-tag">Auto data entry</span>
+          <span class="product-tag">Lead routing rules</span>
+          <span class="product-tag">Follow-up sequences</span>
+          <span class="product-tag">Deal stage automation</span>
+          <span class="product-tag">Weekly report emails</span>
+        </div>
+        <div class="product-meta">
+          <div class="product-price">£1,797 <span>one-time</span></div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <span class="delivery-badge">7-day delivery</span>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();startCheckout(2)">Buy now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 4: Content System -->
+    <div class="product-card" data-category="content" onclick="showProduct(3)">
+      <div class="product-img" style="background:linear-gradient(135deg,#1a1200,#2a1e00);">
+        <span style="font-size:52px;">✍️</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">Content & SEO</div>
+        <h3>AI Content Pipeline</h3>
+        <p>An end-to-end content production system — keyword research, AI drafting in your brand voice, SEO optimisation, and auto-publishing to your CMS. Produce a month of content in a day.</p>
+        <div class="product-includes">
+          <span class="product-tag">Keyword research automation</span>
+          <span class="product-tag">AI drafting (brand voice)</span>
+          <span class="product-tag">SEO optimisation</span>
+          <span class="product-tag">CMS auto-publish</span>
+          <span class="product-tag">Social repurposing</span>
+        </div>
+        <div class="product-meta">
+          <div class="product-price">£1,497 <span>one-time</span></div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <span class="delivery-badge">10-day delivery</span>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();startCheckout(3)">Buy now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /products-grid -->
+
+  <!-- TRUST BAR -->
+  <section class="bg-surface fade-up" style="padding:3rem 4rem;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;">
+      <div><div style="font-size:28px;margin-bottom:.5rem;">🔒</div><div style="font-size:14px;font-weight:700;margin-bottom:.25rem;">Secure checkout</div><div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Powered by Stripe</div></div>
+      <div><div style="font-size:28px;margin-bottom:.5rem;">📄</div><div style="font-size:14px;font-weight:700;margin-bottom:.25rem;">You own everything</div><div style="font-family:var(--mono);font-size:11px;color:var(--muted);">No lock-in. Ever.</div></div>
+      <div><div style="font-size:28px;margin-bottom:.5rem;">⚡</div><div style="font-size:14px;font-weight:700;margin-bottom:.25rem;">Fast delivery</div><div style="font-family:var(--mono);font-size:11px;color:var(--muted);">7–14 days to go live</div></div>
+      <div><div style="font-size:28px;margin-bottom:.5rem;">🛡️</div><div style="font-size:14px;font-weight:700;margin-bottom:.25rem;">30-day support</div><div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Bugs fixed free</div></div>
+    </div>
+  </section>
+
+  <div class="cta-band fade-up">
+    <div class="eyebrow">// Need something custom?</div>
+    <h2 class="section-title">Not quite right?<br><em>We'll build it.</em></h2>
+    <p>Our products are fixed-scope by design. If you need something bespoke, get in touch and we'll scope a custom engagement.</p>
+    <div class="cta-actions"><button class="btn btn-ghost" onclick="showPage('contact')">Talk to us →</button></div>
+  </div>
+  <footer>
+    <div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems for teams that want to scale without scaling headcount.</p></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('work')">Case studies</a></li></ul></div>
+    <div class="footer-col"><h5>Products</h5><ul><li><a onclick="startCheckout(0)">Lead Gen System</a></li><li><a onclick="startCheckout(1)">AI Chatbot</a></li><li><a onclick="startCheckout(2)">CRM Suite</a></li><li><a onclick="startCheckout(3)">Content Pipeline</a></li></ul></div>
+    <div class="footer-col"><h5>Help</h5><ul><li><a onclick="showPage('contact')">Contact</a></li><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd.</p><div class="footer-socials"><a>LinkedIn</a><a>Twitter / X</a></div></div>
+</div>
+
+<!-- ═══════════ PRODUCT DETAIL ═══════════ -->
+<div class="page" id="page-product">
+  <div class="product-detail" id="product-detail-content"></div>
+  <footer>
+    <div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems. Fixed-price. Fast delivery.</p></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('work')">Case studies</a></li></ul></div>
+    <div class="footer-col"><h5>Products</h5><ul><li><a onclick="showPage('shop')">All products</a></li></ul></div>
+    <div class="footer-col"><h5>Help</h5><ul><li><a onclick="showPage('contact')">Contact</a></li><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd.</p></div>
+</div>
+
+<!-- ═══════════ CHECKOUT ═══════════ -->
+<div class="page" id="page-checkout">
+  <div class="checkout-wrap">
+    <div style="margin-bottom:2rem;"><button class="btn btn-ghost btn-sm" onclick="showPage('shop')">← Back to shop</button></div>
+    <div class="checkout-grid">
+      <!-- ORDER SUMMARY -->
+      <div>
+        <div class="order-summary" id="checkout-summary"></div>
+        <div style="border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem;margin-top:1.25rem;">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">What happens after purchase</div>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:22px;height:22px;border:1px solid var(--accent-border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent);flex-shrink:0;">1</div>
+              <p style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">Instant confirmation email + onboarding form sent within 5 minutes.</p>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:22px;height:22px;border:1px solid var(--accent-border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent);flex-shrink:0;">2</div>
+              <p style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">Kickoff call booked within 24 hours. We gather access, requirements, and goals.</p>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:22px;height:22px;border:1px solid var(--accent-border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent);flex-shrink:0;">3</div>
+              <p style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">Build begins. Daily progress updates. Live within the delivery window.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHECKOUT FORM -->
+      <div>
+        <div class="checkout-form-wrap" id="checkout-form-wrap">
+          <h3>Complete your order</h3>
+          <div id="checkout-form-inner">
+            <div class="checkout-section">
+              <div class="checkout-section-title">Your details</div>
+              <div class="form" style="gap:1rem;">
+                <div class="form-row">
+                  <div class="form-group"><label>First name</label><input type="text" id="co-fname" placeholder="Alex"></div>
+                  <div class="form-group"><label>Last name</label><input type="text" id="co-lname" placeholder="Johnson"></div>
+                </div>
+                <div class="form-group"><label>Work email</label><input type="email" id="co-email" placeholder="alex@company.com"></div>
+                <div class="form-group"><label>Company name</label><input type="text" id="co-company" placeholder="Acme Ltd"></div>
+                <div class="form-group"><label>Phone (optional)</label><input type="tel" id="co-phone" placeholder="+44 7700 000000"></div>
+              </div>
+            </div>
+            <div class="checkout-section" style="margin-top:1.5rem;">
+              <div class="checkout-section-title">Payment details</div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;margin-bottom:1rem;">
+                <div style="font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:.5rem;letter-spacing:.1em;">⬢ STRIPE INTEGRATION</div>
+                <p style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;">To activate real payments, add your <strong style="color:var(--text);">Stripe Publishable Key</strong> to the <code style="color:var(--accent);">STRIPE_KEY</code> variable at the top of the JS. Card fields will render via Stripe Elements automatically.</p>
+              </div>
+              <div class="form" style="gap:1rem;">
+                <div class="form-group"><label>Card number</label><input type="text" id="co-card" placeholder="4242 4242 4242 4242" maxlength="19" oninput="formatCard(this)"></div>
+                <div class="card-input-row">
+                  <div class="form-group"><label>Expiry</label><input type="text" id="co-expiry" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)"></div>
+                  <div class="form-group"><label>CVC</label><input type="text" id="co-cvc" placeholder="123" maxlength="3"></div>
+                </div>
+                <div class="form-group"><label>Name on card</label><input type="text" id="co-cardname" placeholder="Alex Johnson"></div>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem;padding:1.1rem;" onclick="processCheckout()">
+              Complete purchase →
+            </button>
+            <div class="stripe-notice">🔒 Secured by Stripe · 256-bit SSL encryption</div>
+          </div>
+          <div class="checkout-success" id="checkout-success">
+            <div class="checkout-success-icon">⚡</div>
+            <h3>Order confirmed!</h3>
+            <p>You'll receive a confirmation email within 5 minutes with your onboarding form and next steps.</p>
+            <p style="margin-top:1rem;color:var(--muted);">Our team will reach out within 24 hours to book your kickoff call.</p>
+            <button class="btn btn-ghost" style="margin-top:2rem;" onclick="showPage('home')">Back to home</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems. Fixed-price. Fast delivery.</p></div>
+    <div class="footer-col"><h5>Help</h5><ul><li><a onclick="showPage('contact')">Contact us</a></li><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div>
+    <div class="footer-col"><h5>Products</h5><ul><li><a onclick="showPage('shop')">Back to shop</a></li></ul></div>
+    <div class="footer-col"><h5>Security</h5><ul><li><a>Stripe payments</a></li><li><a>SSL encrypted</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd.</p></div>
+</div>
+
+<!-- ═══════════ WORK ═══════════ -->
+<div class="page" id="page-work">
+  <div style="padding:9rem 4rem 2rem;background:var(--surface);border-bottom:1px solid var(--border);">
+    <div class="eyebrow">// Case studies</div>
+    <h1 class="section-title">The work we're<br><em>proud of.</em></h1>
+    <p class="section-sub">Real projects. Real results. Full problem → solution → outcome breakdowns.</p>
+  </div>
+  <section class="fade-up" style="padding-top:3rem;">
+    <div class="cases-grid">
+      <div class="case-card" onclick="openCase(0)"><div class="case-industry">SaaS · RevOps</div><h3>Automated lead enrichment pipeline for Series A startup <span class="case-arrow">↗</span></h3><p>3 hours/SDR/day of manual research → fully automated. 6 data sources, ICP scoring, personalised first-line copy into HubSpot.</p><div class="case-metrics"><div class="case-metric"><div class="case-metric-num">22h</div><div class="case-metric-label">Saved/week</div></div><div class="case-metric"><div class="case-metric-num">3.4×</div><div class="case-metric-label">Reply rate</div></div><div class="case-metric"><div class="case-metric-num">6 wks</div><div class="case-metric-label">Payback</div></div></div></div>
+      <div class="case-card" onclick="openCase(1)"><div class="case-industry">Digital Agency · Internal ops</div><h3>AI knowledge assistant replacing 80% of internal Slack queries <span class="case-arrow">↗</span></h3><p>45-person agency. Years of Notion docs inaccessible. RAG-powered Slack bot trained on everything — answers in context, cites sources.</p><div class="case-metrics"><div class="case-metric"><div class="case-metric-num">80%</div><div class="case-metric-label">Query reduction</div></div><div class="case-metric"><div class="case-metric-num">4 days</div><div class="case-metric-label">Build time</div></div><div class="case-metric"><div class="case-metric-num">£0</div><div class="case-metric-label">Extra headcount</div></div></div></div>
+      <div class="case-card" onclick="openCase(2)"><div class="case-industry">Consulting · Client ops</div><h3>Client onboarding automation: 3 days to 4 hours <span class="case-arrow">↗</span></h3><p>6 manual steps per client. One Typeform → Make scenario executes contract, Notion workspace, Drive folder, Asana project, welcome email.</p><div class="case-metrics"><div class="case-metric"><div class="case-metric-num">94%</div><div class="case-metric-label">Time cut</div></div><div class="case-metric"><div class="case-metric-num">0 errors</div><div class="case-metric-label">Since deploy</div></div><div class="case-metric"><div class="case-metric-num">2 wks</div><div class="case-metric-label">Build</div></div></div></div>
+      <div class="case-card" onclick="openCase(3)"><div class="case-industry">E-commerce · Content</div><h3>AI product descriptions for 12,000 SKU catalogue <span class="case-arrow">↗</span></h3><p>18 months of manual work replaced in 3 weeks. PIM → GPT-4o → human review → Shopify publish pipeline. +31% organic traffic in 60 days.</p><div class="case-metrics"><div class="case-metric"><div class="case-metric-num">12k</div><div class="case-metric-label">SKUs processed</div></div><div class="case-metric"><div class="case-metric-num">3 wks</div><div class="case-metric-label">vs 18 months</div></div><div class="case-metric"><div class="case-metric-num">+31%</div><div class="case-metric-label">Organic traffic</div></div></div></div>
+      <div class="case-card" onclick="openCase(4)"><div class="case-industry">Finance · Reporting</div><h3>Automated CFO dashboard: 8 hours of Monday saved every week <span class="case-arrow">↗</span></h3><p>Manual Xero + Stripe + Sheets compilation → live Retool dashboard + auto-generated PDF board report every Sunday evening.</p><div class="case-metrics"><div class="case-metric"><div class="case-metric-num">8h</div><div class="case-metric-label">Saved/week</div></div><div class="case-metric"><div class="case-metric-num">Live</div><div class="case-metric-label">Real-time data</div></div><div class="case-metric"><div class="case-metric-num">1 wk</div><div class="case-metric-label">Build</div></div></div></div>
+      <div class="case-card" onclick="openCase(5)"><div class="case-industry">HR Tech · Recruitment</div><h3>AI CV screening: 200+ applications processed before inbox opens <span class="case-arrow">↗</span></h3><p>Full-day manual screening → automated. Claude scores every CV vs job spec, ranks top 10, writes personalised outreach before recruiter logs in.</p><div class="case-metrics"><div class="case-metric"><div class="case-metric-num">85%</div><div class="case-metric-label">Time saved</div></div><div class="case-metric"><div class="case-metric-num">200+</div><div class="case-metric-label">CVs/role</div></div><div class="case-metric"><div class="case-metric-num">2×</div><div class="case-metric-label">Roles/month</div></div></div></div>
+    </div>
+  </section>
+  <div class="cta-band fade-up">
+    <div class="eyebrow">// Your turn</div>
+    <h2 class="section-title">Want results<br><em>like these?</em></h2>
+    <p>Buy a product today or book a free audit. Either way, results come fast.</p>
+    <div class="cta-actions"><button class="btn btn-primary" onclick="showPage('shop')">Shop products →</button><button class="btn btn-ghost" onclick="showPage('contact')">Free audit</button></div>
+  </div>
+  <footer><div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems. Fixed-price. Fast delivery.</p></div><div class="footer-col"><h5>Company</h5><ul><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-col"><h5>Products</h5><ul><li><a onclick="showPage('shop')">All products</a></li></ul></div><div class="footer-col"><h5>Get started</h5><ul><li><a onclick="showPage('shop')">Shop</a></li><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div></footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd.</p><div class="footer-socials"><a>LinkedIn</a><a>Twitter / X</a></div></div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<div class="page" id="page-about">
+  <div style="padding:9rem 4rem 2rem;background:var(--surface);border-bottom:1px solid var(--border);">
+    <div class="eyebrow">// About</div>
+    <h1 class="section-title">We build.<br>We <em>don't consult.</em></h1>
+  </div>
+  <section class="fade-up">
+    <div class="about-grid">
+      <div>
+        <div class="about-body">
+          <p>AXON.ai started from a simple observation: <strong>most businesses are drowning in work that shouldn't require human intelligence.</strong> Data entry, lead research, report generation, content publishing — hours burned weekly on tasks a well-built system handles in seconds.</p>
+          <p>We don't deliver strategy decks. We build the actual systems — connected to your actual tools — that replace those hours with automation. Every project starts with a clear ROI target and ends with a live system you own completely.</p>
+          <p><strong>Based in London.</strong> Working with clients across the UK, Europe, and beyond. From solo founders automating from day one, to scale-ups rebuilding ops infrastructure ahead of their next funding round.</p>
+        </div>
+        <button class="btn btn-primary" style="margin-top:2.5rem;" onclick="showPage('contact')">Work with us →</button>
+      </div>
+      <div class="values-list">
+        <div class="value-item"><h4>Build, don't advise</h4><p>We ship systems. You'll never receive a strategy doc without functional automation alongside it.</p></div>
+        <div class="value-item"><h4>You own everything</h4><p>All workflows live in your accounts. Full documentation on every project. No lock-in, ever.</p></div>
+        <div class="value-item"><h4>ROI first</h4><p>Every project is scoped around measurable outcomes. If it doesn't have a number, we don't build it.</p></div>
+        <div class="value-item"><h4>Start small, expand fast</h4><p>Find your highest-value win, prove it in weeks, build from there. No 6-month implementations.</p></div>
+        <div class="value-item"><h4>Radical transparency</h4><p>Clear scope, clear timeline, clear price. No surprises.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-surface fade-up">
+    <div class="section-hdr"><div class="eyebrow">// Team</div><h2 class="section-title">The people<br><em>building your systems.</em></h2></div>
+    <div class="team-grid" style="max-width:800px;">
+      <div class="team-card"><div class="team-avatar" style="background:var(--accent-dim);color:var(--accent);">MA</div><div class="team-name">Marcio A.</div><div class="team-role">Founder & Automation Lead</div><p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:.75rem;line-height:1.8;">Automation architecture, AI systems, client strategy. London.</p></div>
+      <div class="team-card"><div class="team-avatar" style="background:rgba(0,92,255,.1);color:#4D8AFF;">LP</div><div class="team-name">Lena P.</div><div class="team-role">AI Engineer</div><p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:.75rem;line-height:1.8;">RAG pipelines, fine-tuning, LLM integration.</p></div>
+      <div class="team-card"><div class="team-avatar" style="background:rgba(229,100,0,.1);color:#E56400;">TK</div><div class="team-name">Tom K.</div><div class="team-role">Integration Specialist</div><p style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:.75rem;line-height:1.8;">Tool connectivity, API builds, Make & n8n.</p></div>
+    </div>
+  </section>
+  <section class="fade-up">
+    <div class="section-hdr"><div class="eyebrow">// FAQ</div><h2 class="section-title">Common<br><em>questions.</em></h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How long does delivery take?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>CRM Suite: 7 days. Chatbot & Content System: 10 days. Lead Gen System: 14 days. These are maximums — we often deliver faster. Complex custom projects are scoped individually.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do I need technical knowledge?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Not at all. You describe what's taking too long — we handle everything technical. We deliver plain-English documentation so your team can manage what's built.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Who owns the systems you build?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>You own everything. All workflows are built inside your accounts, all API keys are yours, all documentation is yours. Complete independence — no ongoing dependency on us.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What if something breaks after launch?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>All products include 30-day post-launch support. Bugs and edge cases fixed free. After that, optional maintenance plans from £250/month.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can you work with my existing tools?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Almost certainly. We work with 50+ tools. If it has an API, we can connect it. We design around your existing stack — no forced migrations.</p></div></div>
+    </div>
+  </section>
+  <div class="cta-band fade-up">
+    <div class="eyebrow">// Ready?</div>
+    <h2 class="section-title">Start with a<br><em>product or a call.</em></h2>
+    <p>Buy directly or book a free audit first. Either way, we'll have your automation live within weeks.</p>
+    <div class="cta-actions"><button class="btn btn-primary" onclick="showPage('shop')">Shop products →</button><button class="btn btn-ghost" onclick="showPage('contact')">Free audit</button></div>
+  </div>
+  <footer><div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems. Built in London.</p></div><div class="footer-col"><h5>Company</h5><ul><li><a onclick="showPage('work')">Case studies</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-col"><h5>Products</h5><ul><li><a onclick="showPage('shop')">All products</a></li></ul></div><div class="footer-col"><h5>Get started</h5><ul><li><a onclick="showPage('shop')">Shop</a></li><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div></footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd.</p><div class="footer-socials"><a>LinkedIn</a><a>Twitter / X</a></div></div>
+</div>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<div class="page" id="page-contact">
+  <div style="padding:9rem 4rem 2rem;background:var(--surface);border-bottom:1px solid var(--border);">
+    <div class="eyebrow">// Contact</div>
+    <h1 class="section-title">Let's find your<br><em>automation wins.</em></h1>
+  </div>
+  <section class="fade-up">
+    <div class="contact-grid">
+      <div>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:1rem;">Book a free 30-minute audit</h3>
+        <p style="font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.9;margin-bottom:2rem;">We'll identify your top 3 automation opportunities. No pitch, no commitment — just clarity and a plan.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;">
+          <div style="display:flex;align-items:center;gap:1rem;"><div style="width:36px;height:36px;border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📍</div><div style="font-family:var(--mono);font-size:13px;color:var(--muted);"><strong style="color:var(--text);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:400;margin-bottom:2px;">Location</strong>London, UK · Working globally</div></div>
+          <div style="display:flex;align-items:center;gap:1rem;"><div style="width:36px;height:36px;border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">✉️</div><div style="font-family:var(--mono);font-size:13px;color:var(--muted);"><strong style="color:var(--text);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:400;margin-bottom:2px;">Email</strong><a href="mailto:hello@axon.ai" style="color:var(--accent);">hello@axon.ai</a></div></div>
+          <div style="display:flex;align-items:center;gap:1rem;"><div style="width:36px;height:36px;border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">⏱</div><div style="font-family:var(--mono);font-size:13px;color:var(--muted);"><strong style="color:var(--text);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:400;margin-bottom:2px;">Response</strong>Within 4 business hours</div></div>
+        </div>
+        <div style="border:1px solid var(--accent-border);border-radius:var(--rl);padding:1.5rem;background:var(--accent-dim);">
+          <div class="eyebrow" style="margin-bottom:.75rem;">// Or buy directly</div>
+          <p style="font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:1rem;">Skip the call — buy one of our fixed-price products and we'll onboard you immediately.</p>
+          <button class="btn btn-primary btn-sm" onclick="showPage('shop')">Browse products →</button>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:var(--rl);padding:2.5rem;">
+        <div class="form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>First name</label><input type="text" id="cf-fname" placeholder="Alex"></div>
+            <div class="form-group"><label>Last name</label><input type="text" id="cf-lname" placeholder="Johnson"></div>
+          </div>
+          <div class="form-group"><label>Work email</label><input type="email" id="cf-email" placeholder="alex@company.com"></div>
+          <div class="form-group"><label>Company</label><input type="text" id="cf-company" placeholder="Acme Ltd"></div>
+          <div class="form-group"><label>Company size</label><select id="cf-size"><option value="">Select...</option><option>Solo / Freelancer</option><option>2–10</option><option>11–50</option><option>51–200</option><option>200+</option></select></div>
+          <div class="form-group"><label>What's taking too long right now?</label><textarea id="cf-problem" placeholder="Describe the manual work slowing you down..."></textarea></div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitContact()">Send message →</button>
+          <p style="font-family:var(--mono);font-size:11px;color:var(--muted2);text-align:center;">No spam. Reply within 4 hours.</p>
+        </div>
+        <div id="contact-success" style="display:none;text-align:center;padding:3rem 1rem;">
+          <div style="font-size:48px;margin-bottom:1rem;">⚡</div>
+          <h3 style="font-size:22px;font-weight:700;margin-bottom:.5rem;">Message sent.</h3>
+          <p style="font-family:var(--mono);font-size:13px;color:var(--muted);">We'll reply within 4 business hours with a calendar link for your free audit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="footer-brand"><div class="logo"><div class="logo-dot"></div>AXON<span>.ai</span></div><p>AI automation systems. Built in London.</p></div><div class="footer-col"><h5>Company</h5><ul><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('work')">Case studies</a></li></ul></div><div class="footer-col"><h5>Products</h5><ul><li><a onclick="showPage('shop')">All products</a></li></ul></div><div class="footer-col"><h5>Help</h5><ul><li><a href="mailto:hello@axon.ai">hello@axon.ai</a></li></ul></div></footer>
+  <div class="footer-bottom"><p>© 2026 Axon AI Ltd.</p><div class="footer-socials"><a>LinkedIn</a><a>Twitter / X</a></div></div>
+</div>
+
+<!-- CASE MODAL -->
+<div class="modal-overlay" id="case-modal">
+  <div class="modal-box"><button class="modal-close" onclick="closeCase()">✕</button><div id="case-modal-content"></div></div>
+</div>
+
+<script>
+// ── CONFIG ──
+const STRIPE_KEY = 'YOUR_STRIPE_PUBLISHABLE_KEY'; // Replace with your key
+
+// ── PRODUCTS DATA ──
+const PRODUCTS = [
+  {
+    id: 0, emoji:'🎯', category:'Lead Generation', name:'Lead Gen Automation System',
+    price: 1997, priceDisplay:'£1,997', delivery:'14 days',
+    tagline:'Find, enrich, score, and reach out — fully automated.',
+    description:'A fully automated outbound pipeline that sources your ideal customers from Apollo and LinkedIn, enriches their data across 6 sources, scores them against your ICP, generates AI-personalised first-lines, and pushes qualified leads directly into your CRM — before a human touches a record.',
+    deliverables:[
+      {t:'Lead sourcing setup', d:'Apollo / LinkedIn / Hunter configured to your ICP filters. Pulls fresh leads daily.'},
+      {t:'Data enrichment pipeline', d:'6-source enrichment: company size, tech stack, funding, recent news, LinkedIn activity.'},
+      {t:'ICP scoring model', d:'Custom scoring rubric built around your ideal customer. Auto-labels leads: hot / warm / cold.'},
+      {t:'AI personalisation', d:'GPT-4o generates a personalised first line for every lead based on their enriched data.'},
+      {t:'CRM integration', d:'HubSpot, Salesforce, Pipedrive, or Notion. Leads pushed with all fields pre-populated.'},
+      {t:'Email sequence setup', d:'3-step cold email sequence connected to your outbound tool (Instantly / Lemlist).'},
+      {t:'Full documentation + 30-day support', d:'Plain-English docs. Bugs fixed free for 30 days post-launch.'},
+    ],
+    timeline:[{n:'Day 1–2',l:'Kickoff & setup'},{n:'Day 3–10',l:'Build & test'},{n:'Day 14',l:'Go live'}],
+    stack:'Clay · Apollo · Hunter · HubSpot · GPT-4o · Make · Instantly',
+    process:[
+      {n:'01',t:'Kickoff call',d:'We learn your ICP, existing tools, and outbound goals. You provide access.'},
+      {n:'02',t:'Pipeline build',d:'We build the sourcing, enrichment, and scoring pipeline in your accounts.'},
+      {n:'03',t:'Personalisation layer',d:'GPT-4o configured with your tone, value prop, and ICP context.'},
+      {n:'04',t:'CRM + sequence connect',d:'Everything hooked into your CRM and email tool. Full test run with 10 leads.'},
+      {n:'05',t:'Handover',d:'30-min walkthrough, full documentation, 30-day support window.'},
+    ]
+  },
+  {
+    id: 1, emoji:'🤖', category:'AI Assistant', name:'AI Chatbot System',
+    price: 2497, priceDisplay:'£2,497', delivery:'10 days',
+    tagline:'A custom AI trained on your business — live 24/7.',
+    description:'A custom AI assistant built on Claude or GPT-4o, trained on your entire knowledge base — FAQs, product docs, policies, brand tone. Deployed on your website and/or Slack. Handles support, sales pre-qualification, and internal Q&A. Escalates to human when needed.',
+    deliverables:[
+      {t:'Knowledge base ingestion', d:'We ingest all your docs — Notion, Google Drive, PDFs, FAQs. Structured into a RAG pipeline.'},
+      {t:'Custom AI configuration', d:'Model tuned to your brand voice, escalation rules, and out-of-scope behaviour.'},
+      {t:'Website embed', d:'JavaScript snippet for your site. Customised widget matching your branding.'},
+      {t:'Slack integration (optional)', d:'Internal-facing bot for your team. Answers ops questions, policy queries, onboarding help.'},
+      {t:'Handoff to human', d:'Smart escalation — bot detects when it should hand off and routes to your inbox or support tool.'},
+      {t:'Analytics dashboard', d:'Question logs, resolution rates, top topics. Monthly insight email.'},
+      {t:'Full documentation + 30-day support', d:'Training guide for your team. Bugs fixed free.'},
+    ],
+    timeline:[{n:'Day 1',l:'Kickoff & doc ingest'},{n:'Day 2–8',l:'Build & test'},{n:'Day 10',l:'Go live'}],
+    stack:'Claude API · Supabase · n8n · Slack API · JavaScript embed',
+    process:[
+      {n:'01',t:'Kickoff & doc audit',d:'You share all knowledge sources. We audit and plan the ingestion structure.'},
+      {n:'02',t:'RAG pipeline build',d:'Documents chunked, embedded, and stored in vector database.'},
+      {n:'03',t:'Model config & testing',d:'Prompts, tone, escalation rules configured. 100-question test suite run.'},
+      {n:'04',t:'Deployment',d:'Embed installed on your site. Slack bot authorised. 48-hour live monitoring.'},
+      {n:'05',t:'Handover',d:'Full walkthrough, how to add new docs, update behaviour. 30-day support.'},
+    ]
+  },
+  {
+    id: 2, emoji:'⚙️', category:'CRM & Ops', name:'CRM Automation Suite',
+    price: 1797, priceDisplay:'£1,797', delivery:'7 days',
+    tagline:'Zero manual CRM work. Every lead, deal, and follow-up automated.',
+    description:'End-to-end CRM automation — data entry eliminated, leads routed automatically, follow-up sequences triggered, deal stages updated, and weekly performance reports generated and emailed. Built around your existing CRM: HubSpot, Salesforce, Pipedrive, or Notion.',
+    deliverables:[
+      {t:'Auto data entry', d:'Form submissions, emails, and inbound leads auto-create and populate CRM records.'},
+      {t:'Lead routing rules', d:'Leads assigned to the right team member based on territory, size, or source.'},
+      {t:'Follow-up sequences', d:'Timed email/task sequences triggered by deal stage changes or inactivity.'},
+      {t:'Deal stage automation', d:'Stage updates triggered by email replies, meetings booked, or document opens.'},
+      {t:'Weekly report email', d:'Auto-generated pipeline summary emailed to your team every Monday morning.'},
+      {t:'Slack/Teams notifications', d:'Real-time alerts for new leads, stage changes, and at-risk deals.'},
+      {t:'Full documentation + 30-day support', d:'Setup docs and a training call included.'},
+    ],
+    timeline:[{n:'Day 1',l:'Kickoff & audit'},{n:'Day 2–5',l:'Build & test'},{n:'Day 7',l:'Go live'}],
+    stack:'HubSpot / Salesforce / Pipedrive · Make · Slack API · Gmail API',
+    process:[
+      {n:'01',t:'CRM audit',d:'We review your current setup, data quality, and workflows.'},
+      {n:'02',t:'Automation map',d:'We map every trigger → action flow before building anything.'},
+      {n:'03',t:'Build & connect',d:'All automations built in Make, connected to your CRM via API.'},
+      {n:'04',t:'Test with real data',d:'We run the full suite against your actual pipeline data.'},
+      {n:'05',t:'Handover',d:'Walkthrough, docs, training call. 30-day support included.'},
+    ]
+  },
+  {
+    id: 3, emoji:'✍️', category:'Content & SEO', name:'AI Content Pipeline',
+    price: 1497, priceDisplay:'£1,497', delivery:'10 days',
+    tagline:'A month of content in a day. Your voice. Your CMS.',
+    description:'An end-to-end AI content production system — keyword research, brief generation, AI drafting in your brand voice, SEO optimisation, human review step, and auto-publishing to your CMS. Produce 30 pieces of content in a day without losing your brand voice.',
+    deliverables:[
+      {t:'Keyword research automation', d:'Ahrefs/SEMrush integration. Weekly keyword opportunity reports generated automatically.'},
+      {t:'Brief generation', d:'Topic briefs auto-generated from keywords — outline, angle, target word count, internal links.'},
+      {t:'AI drafting (brand voice)', d:'GPT-4o trained on your existing content to match your tone. Drafts in Notion/Google Docs.'},
+      {t:'SEO optimisation layer', d:'Meta titles, descriptions, headers, and keyword density checked automatically.'},
+      {t:'CMS auto-publish', d:'Approved content published to WordPress, Webflow, or Shopify with one click (or automatically).'},
+      {t:'Social repurposing', d:'Each piece repurposed into LinkedIn post + Twitter thread + email snippet automatically.'},
+      {t:'Full documentation + 30-day support', d:'Team training on how to use and scale the system.'},
+    ],
+    timeline:[{n:'Day 1',l:'Kickoff & voice training'},{n:'Day 2–8',l:'Build & test'},{n:'Day 10',l:'Go live'}],
+    stack:'GPT-4o · Perplexity · Airtable · Notion · WordPress/Webflow API · Make',
+    process:[
+      {n:'01',t:'Brand voice analysis',d:'We analyse 10+ existing pieces to extract your tone, style, and vocabulary.'},
+      {n:'02',t:'Pipeline build',d:'Keyword → brief → draft → review → publish pipeline built in Make.'},
+      {n:'03',t:'Voice fine-tuning',d:'GPT-4o prompted with brand voice guide. 5 sample pieces reviewed and refined.'},
+      {n:'04',t:'CMS connection',d:'Publishing API connected. Review step built into Notion/Airtable workflow.'},
+      {n:'05',t:'Handover',d:'Full walkthrough, how to run a monthly content batch. 30-day support.'},
+    ]
+  }
+];
+
+// ── CASE STUDIES DATA ──
+const CASES = [
+  {industry:'SaaS · RevOps',title:'Automated lead enrichment pipeline for Series A startup',problem:'Manual lead research was consuming 3 hours per SDR per day across a 6-person sales team. Leads arrived in HubSpot with minimal data — just a name and company — requiring manual research before personalised outreach.',solution:'Fully automated enrichment pipeline using Clay, Apollo, and Clearbit triggered on every new HubSpot contact. Enriches with 23 data points, scores against ICP model, and generates AI-personalised first-line — all before a human sees the record.',stack:'Clay · Apollo · Clearbit · HubSpot · Make · GPT-4o',results:[{n:'22h',l:'Saved per week'},{n:'3.4×',l:'Reply rate uplift'},{n:'6 wks',l:'Payback period'}]},
+  {industry:'Digital Agency · Internal ops',title:'AI knowledge assistant replacing 80% of internal Slack queries',problem:'45-person agency. Years of knowledge across Notion, Drive, and Slack — effectively inaccessible. New hires asked the same questions for weeks. Senior staff constantly interrupted.',solution:'RAG-powered Slack bot trained on their full Notion wiki, client docs, and brand guidelines. Answers in context, cites sources, escalates to human when confidence is low.',stack:'Claude API · Supabase · n8n · Slack API',results:[{n:'80%',l:'Query reduction'},{n:'4 days',l:'Build time'},{n:'£0',l:'Extra headcount'}]},
+  {industry:'Consulting · Client ops',title:'Client onboarding automation: 3 days to 4 hours',problem:'Every new client required manual: DocuSign contract, Notion workspace, Google Drive folder, welcome email, Asana project, kickoff booking. All error-prone.',solution:'Single Typeform submission triggers Make scenario executing all 6 steps automatically. Personalised from CRM data. Full onboarding complete in under 4 hours end-to-end.',stack:'Make · Typeform · DocuSign · Notion · Asana · HubSpot · Calendly',results:[{n:'94%',l:'Time reduction'},{n:'0 errors',l:'Since deploy'},{n:'2 wks',l:'Build & deploy'}]},
+  {industry:'E-commerce · Content',title:'AI product descriptions for 12,000 SKU catalogue',problem:'12,000 products. No descriptions. No SEO metadata. Manual writing would have cost £180k and taken 18 months.',solution:'Pipeline ingesting product data from PIM, GPT-4o generating SEO-optimised descriptions, human-in-the-loop review step, auto-publishing to Shopify via API.',stack:'Python · GPT-4o · Shopify API · Airtable · n8n',results:[{n:'12k',l:'SKUs processed'},{n:'3 wks',l:'vs 18 months'},{n:'+31%',l:'Organic traffic'}]},
+  {industry:'Finance · Reporting',title:'Automated CFO dashboard eliminating 8 hours of Monday',problem:'CFO manually compiling Xero + Stripe + Google Sheets data every Monday morning for board report. 8 hours of skilled time per week for zero-judgement work.',solution:'Live Retool dashboard connected to all three sources. Auto-generates PDF board report every Sunday evening and emails to exec team.',stack:'Retool · Xero API · Stripe API · Supabase · Python · Make',results:[{n:'8h',l:'Saved per week'},{n:'Live',l:'Real-time data'},{n:'1 wk',l:'Build time'}]},
+  {industry:'HR Tech · Recruitment',title:'AI CV screening: 200+ applications processed before inbox opens',problem:'Recruitment agency manually screening 200+ CVs per role. Full day of senior recruiter time. Inconsistent quality.',solution:'Claude scores each CV across 12 criteria vs job spec, ranks top 10 with written rationale, drafts personalised outreach — before recruiter logs in.',stack:'Claude API · Greenhouse ATS · Make · Airtable · Gmail API',results:[{n:'85%',l:'Screening time cut'},{n:'200+',l:'CVs/role'},{n:'2×',l:'Roles/month'}]},
+];
+
+// ── ROUTING ──
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('nav a[data-page]').forEach(a => a.classList.toggle('active', a.dataset.page === id));
+  window.scrollTo({top:0,behavior:'instant'});
+  setTimeout(initFadeUps, 50);
+}
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── MOBILE MENU ──
+function toggleMenu(){ document.getElementById('nav-links').classList.toggle('open'); }
+function closeMenu(){ document.getElementById('nav-links').classList.remove('open'); }
+
+// ── FADE UPS ──
+function initFadeUps() {
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.08});
+  document.querySelectorAll('.page.active .fade-up').forEach(el => { el.classList.remove('visible'); obs.observe(el); });
+}
+initFadeUps();
+
+// ── FAQ ──
+function toggleFaq(el) {
+  const ans = el.nextElementSibling, icon = el.querySelector('.faq-icon'), isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(a => { a.classList.remove('open'); a.previousElementSibling.querySelector('.faq-icon').textContent = '+'; });
+  if (!isOpen) { ans.classList.add('open'); icon.textContent = '−'; }
+}
+
+// ── SHOP FILTER ──
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+  });
+}
+
+// ── PRODUCT DETAIL ──
+function showProduct(id) {
+  const p = PRODUCTS[id];
+  document.getElementById('product-detail-content').innerHTML = `
+    <div style="margin-bottom:1.5rem;"><button class="btn btn-ghost btn-sm" onclick="showPage('shop')">← Back to shop</button></div>
+    <div class="pd-grid">
+      <div>
+        <div class="eyebrow">${p.category}</div>
+        <h1 class="section-title" style="margin-bottom:1rem;">${p.name}</h1>
+        <p style="font-family:var(--mono);font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:2.5rem;">${p.description}</p>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:1.5rem;">What's delivered</h3>
+        <div class="pd-deliverables">
+          ${p.deliverables.map(d=>`<div class="pd-deliverable"><div class="pd-check">✓</div><div><strong>${d.t}</strong><p>${d.d}</p></div></div>`).join('')}
+        </div>
+        <h3 style="font-size:18px;font-weight:700;margin:2.5rem 0 1.25rem;">The process</h3>
+        <div class="process-steps-list">
+          ${p.process.map(s=>`<div class="ps-item"><div class="ps-num">${s.n}</div><div><h5>${s.t}</h5><p>${s.d}</p></div></div>`).join('')}
+        </div>
+        <div style="margin-top:2rem;border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;">
+          <div class="eyebrow" style="margin-bottom:.5rem;">// Stack</div>
+          <p style="font-family:var(--mono);font-size:12px;color:var(--accent);">${p.stack}</p>
+        </div>
+      </div>
+      <div class="pd-sticky">
+        <div class="pd-price-box ${id===1?'featured-box':''}">
+          <div class="eyebrow">${p.category}</div>
+          <div class="pd-price">${p.priceDisplay} <span>one-time</span></div>
+          <div class="pd-guarantee">No subscription. No lock-in. You own everything.</div>
+          <div class="pd-timeline" style="margin-top:1.5rem;">
+            ${p.timeline.map(t=>`<div class="pd-tl-item"><div class="pd-tl-num">${t.n}</div><div class="pd-tl-label">${t.l}</div></div>`).join('')}
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem;" onclick="startCheckout(${id})">Buy now — ${p.priceDisplay} →</button>
+          <p style="font-family:var(--mono);font-size:11px;color:var(--muted2);text-align:center;margin-top:.75rem;">Secure checkout · Stripe · SSL</p>
+        </div>
+        <div class="pd-what">
+          <h4>What's included</h4>
+          <div class="pd-deliverables" style="margin-top:.75rem;">
+            ${p.deliverables.map(d=>`<div class="pd-deliverable"><div class="pd-check">✓</div><div><strong>${d.t}</strong></div></div>`).join('')}
+          </div>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;margin-top:1.5rem;">
+          <div style="font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:.5rem;">
+            <span>✓ 30-day post-launch support</span>
+            <span>✓ Built in your accounts</span>
+            <span>✓ Full documentation</span>
+            <span>✓ Handover call included</span>
+          </div>
+        </div>
+        <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:1rem;" onclick="showPage('contact')">Questions? Talk to us first</button>
+      </div>
+    </div>
+  `;
+  showPage('product');
+}
+
+// ── CHECKOUT ──
+let currentProduct = null;
+function startCheckout(id) {
+  currentProduct = PRODUCTS[id];
+  document.getElementById('checkout-form-inner').style.display = 'block';
+  document.getElementById('checkout-success').style.display = 'none';
+  document.getElementById('checkout-summary').innerHTML = `
+    <h3>Order summary</h3>
+    <div class="order-item">
+      <div><div class="order-item-name">${currentProduct.name}</div><div class="order-item-desc">${currentProduct.category} · ${currentProduct.delivery} delivery</div></div>
+      <div class="order-item-price">${currentProduct.priceDisplay}</div>
+    </div>
+    <hr class="order-divider">
+    <div class="order-total"><span class="order-total-label">Total (inc. VAT)</span><span class="order-total-price">${currentProduct.priceDisplay}</span></div>
+    <div class="order-includes">
+      ${currentProduct.deliverables.slice(0,5).map(d=>`<span class="order-include">${d.t}</span>`).join('')}
+      <span class="order-include">30-day post-launch support</span>
+    </div>
+  `;
+  showPage('checkout');
+}
+
+function buyProduct(id){ startCheckout(id); }
+
+function processCheckout() {
+  const fname = document.getElementById('co-fname').value.trim();
+  const email = document.getElementById('co-email').value.trim();
+  const card = document.getElementById('co-card').value.trim();
+  if (!fname || !email) { alert('Please enter your name and email.'); return; }
+  if (!card || card.replace(/\s/g,'').length < 16) { alert('Please enter a valid card number.'); return; }
+  // In production: Stripe.createToken() or Stripe Elements would fire here
+  document.getElementById('checkout-form-inner').style.display = 'none';
+  document.getElementById('checkout-success').style.display = 'block';
+}
+
+// ── CARD FORMAT HELPERS ──
+function formatCard(el) {
+  let v = el.value.replace(/\D/g,'').substring(0,16);
+  el.value = v.replace(/(.{4})/g,'$1 ').trim();
+}
+function formatExpiry(el) {
+  let v = el.value.replace(/\D/g,'').substring(0,4);
+  if (v.length >= 2) v = v.substring(0,2) + ' / ' + v.substring(2);
+  el.value = v;
+}
+
+// ── CASE MODAL ──
+function openCase(i) {
+  const c = CASES[i];
+  document.getElementById('case-modal-content').innerHTML = `
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">${c.industry}</div>
+    <h2 style="font-size:22px;font-weight:700;margin-bottom:1.75rem;line-height:1.3;">${c.title}</h2>
+    <div style="margin-bottom:1.5rem;"><div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;">The problem</div><p style="font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.9;">${c.problem}</p></div>
+    <div style="margin-bottom:1.5rem;"><div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;">What we built</div><p style="font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.9;">${c.solution}</p></div>
+    <div style="margin-bottom:2rem;"><div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;">Stack</div><p style="font-family:var(--mono);font-size:12px;color:var(--accent);">${c.stack}</p></div>
+    <div style="display:flex;gap:2.5rem;border-top:1px solid var(--border);padding-top:1.75rem;margin-bottom:2rem;">
+      ${c.results.map(r=>`<div><div style="font-family:var(--mono);font-size:28px;font-weight:700;">${r.n}</div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;">${r.l}</div></div>`).join('')}
+    </div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="showPage('shop');closeCase()">Get results like this →</button>
+  `;
+  document.getElementById('case-modal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeCase() {
+  document.getElementById('case-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// ── CONTACT FORM ──
+function submitContact() {
+  const fname = document.getElementById('cf-fname').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const problem = document.getElementById('cf-problem').value.trim();
+  if (!fname || !email || !problem) { alert('Please fill in name, email, and describe your problem.'); return; }
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('contact-success').style.display = 'block';
+}
+</script>
+</body>
+</html>
